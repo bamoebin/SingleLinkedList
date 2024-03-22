@@ -3,6 +3,19 @@
 struct Node* head = NULL;
 struct Node* tail = NULL;
 
+
+// Operasi Alokasi
+struct Node *Alokasi(int nilai) {
+    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+    if (newNode == NULL) {
+        printf("Alokasi memori gagal.\n");
+        exit(1);
+    }
+    newNode->data = nilai;
+    newNode->next = NULL;
+    return newNode;
+}
+
 //CariPosisi
 int CariPosisi(int nilaiCari) {
     struct Node *current = head;
@@ -15,18 +28,6 @@ int CariPosisi(int nilaiCari) {
         return -1; // Data tidak ditemukan
     else
         return posisi; // Data ditemukan pada posisi tertentu
-}
-
-// Operasi Alokasi
-struct Node *Alokasi(int nilai) {
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    if (newNode == NULL) {
-        printf("Alokasi memori gagal.\n");
-        exit(1);
-    }
-    newNode->data = nilai;
-    newNode->next = NULL;
-    return newNode;
 }
 
 // Operasi PengisianNilai
